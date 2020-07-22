@@ -1,4 +1,5 @@
 import random
+
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from django_seed import Seed
@@ -12,7 +13,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         user_seeder = Seed.seeder()
-        user_seeder.add_entity(User, 20, {"is_staff": False, "is_superuser": False})
+        user_seeder.add_entity(
+            User, 20, {"is_staff": False, "is_superuser": False})
         user_seeder.execute()
 
         users = User.objects.all()

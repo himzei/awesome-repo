@@ -46,7 +46,10 @@ PROJECT_APPS = [
     "rooms.apps.RoomsConfig",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "django_seed",
+    "rest_framework"
+]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
@@ -132,3 +135,9 @@ MEDIA_URL = "/media/"
 # Auth
 
 AUTH_USER_MODEL = "users.User"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+
+}
